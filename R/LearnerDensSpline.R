@@ -65,18 +65,18 @@ LearnerDensSpline = R6Class("LearnerDensSpline",
 
       fit = mlr3misc::invoke(gss::ssden, formula = ~ data, .args = pars)
 
-      pdf <- function(x1) {} # nolint
-      body(pdf) <- substitute({
+      pdf = function(x1) {} # nolint
+      body(pdf) = substitute({
         mlr3misc::invoke(gss::dssden, object = fit, x = x1)
       })
 
-      cdf <- function(x1) {} # nolint
-      body(cdf) <- substitute({
+      cdf = function(x1) {} # nolint
+      body(cdf) = substitute({
         mlr3misc::invoke(gss::pssden, object = fit, q = x1)
       })
 
-      quantile <- function(x1) {} # nolint
-      body(quantile) <- substitute({
+      quantile = function(x1) {} # nolint
+      body(quantile) = substitute({
         mlr3misc::invoke(gss::qssden, object = fit, p = x1)
       })
 
