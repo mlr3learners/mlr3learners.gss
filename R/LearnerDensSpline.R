@@ -90,7 +90,7 @@ LearnerDensSpline = R6Class("LearnerDensSpline",
     .predict = function(task) {
       newdata = task$truth()
 
-      PredictionDens$new(
+      mlr3proba::PredictionDens$new(
         task = task,
         pdf = self$model$pdf(newdata),
         cdf = self$model$cdf(newdata))
