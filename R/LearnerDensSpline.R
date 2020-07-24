@@ -65,26 +65,26 @@ LearnerDensSpline = R6Class("LearnerDensSpline",
 
       fit = mlr3misc::invoke(gss::ssden, formula = ~ data, .args = pars)
 
-      pdf = function(x1) {} # nolint
+      pdf = function(x) {} # nolint
       body(pdf) = substitute({
-        mlr3misc::invoke(gss::dssden, object = fit, x = x1)
+        mlr3misc::invoke(gss::dssden, object = fit, x = x)
       })
 
-      cdf = function(x1) {} # nolint
+      cdf = function(x) {} # nolint
       body(cdf) = substitute({
-        mlr3misc::invoke(gss::pssden, object = fit, q = x1)
+        mlr3misc::invoke(gss::pssden, object = fit, q = x)
       })
 
-      quantile = function(x1) {} # nolint
+      quantile = function(x) {} # nolint
       body(quantile) = substitute({
-        mlr3misc::invoke(gss::qssden, object = fit, p = x1)
+        mlr3misc::invoke(gss::qssden, object = fit, p = x)
       })
 
 
       distr6::Distribution$new(
         name = "Smoothing Spline Density Estimator",
         short_name = "splineDens",
-        pdf = pdf, cdf = cdf, quantile = quantile)
+        pdf = pdf, cdf = cdf, quantile = quantile, type = set6::Reals$new())
     },
 
     .predict = function(task) {
