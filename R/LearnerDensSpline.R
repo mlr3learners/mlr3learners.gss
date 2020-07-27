@@ -75,9 +75,9 @@ LearnerDensSpline = R6Class("LearnerDensSpline",
         mlr3misc::invoke(gss::pssden, object = fit, q = x)
       })
 
-      quantile = function(x) {} # nolint
+      quantile = function(p) {} # nolint
       body(quantile) = substitute({
-        mlr3misc::invoke(gss::qssden, object = fit, p = x)
+        mlr3misc::invoke(gss::qssden, object = fit, p = p)
       })
 
 
